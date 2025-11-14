@@ -1,0 +1,20 @@
+/* Skills 网格：桌面 2 列，小屏 1 列 */
+.skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;      /* 两列 */
+  gap: var(--space-5);                 /* 网格间距 */
+}
+.block {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-1);
+}
+.block h2 { margin-top: 0; }
+.block ul { margin: 0; padding-left: 1.1em; color: var(--fg-2); }
+
+/* 小屏断点：≤ 700px 时改为一列 */
+@media (max-width: 700px) {
+  .skills { grid-template-columns: 1fr; }
+}
