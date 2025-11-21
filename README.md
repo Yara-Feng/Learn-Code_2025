@@ -1,1 +1,4 @@
 尝试完成公司的SSH推送
+
+学习了master和main的区别
+和HEAD是指向的意思
