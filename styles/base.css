@@ -88,3 +88,43 @@ body {
 @media (max-width: 400px) {
   .nav a { margin-left: var(--space-2); font-size: 14px; }
 }
+
+/* 技能项容器：一行三段（名称 / 级别 / 进度条） */
+.skill-item {
+  display: grid;                              /* 用网格排版 */
+  grid-template-columns: 1.4fr .8fr 2.3fr;      /* 三列：名/级/条 */
+  align-items: center;                        /* 垂直居中 */
+  gap: var(--space-2);                        /* 列间距 */
+  margin: 10px 0;                             /* 每项上下间距 */
+}
+
+.skill-name { color: var(--fg-1); font-weight: 600; } /* 名称更醒目 */
+.skill-level { color: var(--fg-3); font-size: 14px; } /* 级别弱化些 */
+
+/* 进度条外框 */
+.bar {
+  height: 8px;                                /* 高度 */
+  background: rgba(255,255,255,0.08);         /* 背景淡 */
+  border-radius: 999px;                        /* 胶囊形状 */
+  overflow: hidden;                           /* 裁掉内层溢出 */
+  border: 1px solid var(--line-2);            /* 细边框 */
+}
+
+/* 进度条填充：用品牌色 */
+.fill {
+  height: 100%;
+  background: var(--brand);
+  transition: width .35s ease;                /* 改百分比时有动画 */
+}
+
+/* 小屏时让“级别”换行到下一行节省空间 */
+@media (max-width: 480px) {
+  .skill-item {
+    grid-template-columns: 1fr 1fr;           /* 两列 */
+    grid-auto-rows: minmax(20px, auto);       /* 行高自适应 */
+  }
+  .skill-level { grid-column: 1 / -1; }       /* 占满整行，排到进度条上面 */
+}
+
+.block h2 { color: var(--fg-1); font-size: 20px; margin-bottom: 10px; }
+.block { padding: var(--space-5); }
